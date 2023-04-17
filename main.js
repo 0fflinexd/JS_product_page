@@ -30,6 +30,7 @@ let products = [
                     <p>Pris: <b>${product.price}</b></p>
                 </div>
                 <button class="remove" data-product-name="${product.name}">Remove</button>
+                <button class="Move Up" data-product-name="${product.name}">Move Up</button>
                 <hr>
             </div>`;
         }
