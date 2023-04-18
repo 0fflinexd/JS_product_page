@@ -1,40 +1,40 @@
-let products = [
-    {
-        name: "Banana",
-        description: "A green banana, so say a berry, and they are correct",
-        price: 9
-     },
-     {
-        name: "Apple",
-        description: "A red fruit",
-        price: 7
-     },
-     {
-        name: "Orange",
-        description: "A orange fruit",
-        price: 10
-     },
+let aktiviteter = [
+    // {
+    //     name: "Banana",
+    //     description: "A green banana, so say a berry, and they are correct",
+    //     price: 9
+    //  },
+    //  {
+    //     name: "Apple",
+    //     description: "A red fruit",
+    //     price: 7
+    //  },
+    //  {
+    //     name: "Orange",
+    //     description: "A orange fruit",
+    //     price: 10
+    //  },
     ];
 
     function showProducts()
     {
         let html = " ";
 
-        for(let product of products)
+        for(let product of aktiviteter)
         {
             html +=`
             <div class="product">
                 <h2> ${product.name}</h2>
                 <div class="info">
                     <p>${product.description}</p>
-                    <p>Pris: <b>${product.price}</b></p>
                 </div>
-                <button class="remove" data-product-name="${product.name}">Remove</button>
-                <button class="Move Up" data-product-name="${product.name}">Move Up</button>
+                <button class="remove" data-product-name="${product.name}">Ta bort</button>
+                <button class="Move Up" data-product-name="${product.name}">Flytta upp</button>
+                <button class="Move Up" data-product-name="${product.name}">Flytta ner</button>
                 <hr>
             </div>`;
         }
-        document.querySelector('.products').innerHTML = html;
+        document.querySelector('.aktiviteter').innerHTML = html;
     }
 
 
@@ -58,7 +58,7 @@ let products = [
                 
                 let productName = removeButton.getAttribute('data-product-name');
 
-                products = products.filter((product) => product.name !== productName);
+                aktiviteter = aktiviteter.filter((product) => product.name !== productName);
                 productCLicked.remove();
             }
         });
@@ -71,20 +71,18 @@ let products = [
 
                 let name = document.querySelector('#name').value;
                 let description = document.querySelector('#description').value;
-                let price = Number(document.querySelector('#price').value);
 
-                if(name && description && price) 
+                if(name && description) 
                 {
                     let newProduct = {
                     name: name,
-                    description: description,
-                    price: price
+                    description: description
                     };
 
-                    products.push(newProduct);
+                    aktiviteter.push(newProduct);
 
                     //reset the form and show new div
-                    let productsDiv = document.querySelector('.products');
+                    let productsDiv = document.querySelector('.aktiviteter');
                     productsDiv.innerHTML = '';
                     showProducts();
 
